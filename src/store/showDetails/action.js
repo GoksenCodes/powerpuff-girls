@@ -1,5 +1,5 @@
 import axios from "axios";
-import { apiUrl } from "../../config/constants";
+import { apiUrl, DEFAULT_PAGINATION_LIMIT } from "../../config/constants";
 
 export const FETCH_SHOWDETAILS_SUCCESS = "FETCH_SHOWDETAILS_SUCCESS";
 
@@ -15,11 +15,3 @@ export const fetchShowDetails = () => {
     dispatch(fetchShowDetailsSuccess(response.data));
   };
 };
-
-// export const fetchEpisodes = () => {
-//   return async (dispatch, getState) => {
-//     const response = await axios.get("http://api.tvmaze.com/shows/6771");
-//     console.log(response.data);
-//     dispatch({ type: "FETCH_SHOWDETAILS_SUCCESS", payload: response.data });
-//   };
-// };
