@@ -24,19 +24,18 @@ describe("#fetchShowDetailsSuccess", () => {
   });
 });
 
-// describe("#fetchShowDetails", () => {
-//   describe("when called", () => {
-//     test("should dispatch an action FETCH_SHOWDETAILS_SUCCESS", async () => {
-//       const fakeShowDetails = {};
-//       const response = { data: {} };
-//       axios.get.mockImplementationOnce(() => Promise.resolve(response));
-//       const dispatch = jest.fn();
-//       const getState = jest.fn().mockReturnValueOnce({ showDetails: {} });
-//       await fetchShowDetails()(dispatch, getState);
-//       expect(dispatch).toHaveBeenCalledWith(
-//         fetchShowDetailsSuccess(fakeShowDetails)
-//       );
-//       expect(getState).toHaveBeenCalledTimes(1);
-//     });
-//   });
-// });
+describe("#fetchShowDetails", () => {
+  describe("when called", () => {
+    test("should dispatch an action FETCH_SHOWDETAILS_SUCCESS", async () => {
+      const fakeShowDetails = {};
+      const response = { data: {} };
+      axios.get.mockImplementationOnce(() => Promise.resolve(response));
+      const dispatch = jest.fn();
+      const getState = jest.fn().mockReturnValueOnce({ showDetails: {} });
+      await fetchShowDetails()(dispatch, getState);
+      expect(dispatch).toHaveBeenCalledWith(
+        fetchShowDetailsSuccess(fakeShowDetails)
+      );
+    });
+  });
+});
