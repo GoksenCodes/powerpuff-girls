@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 
 export default function EpisodeList(props) {
   const originalDate = props.airDate;
@@ -30,7 +31,9 @@ export default function EpisodeList(props) {
             <td>
               {props.season}x{props.episodeNumber}
             </td>
-            <td>{props.title}</td>
+            <NavLink to={`/episodes/${props.id}`} exact={true}>
+              <td>{props.title}</td>
+            </NavLink>
             <td>{airDate}</td>
           </tr>
         </table>
