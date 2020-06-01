@@ -57,31 +57,34 @@ export default function ShowPage() {
         </div>
         <div>{description}</div>
         <div>
-          {toggle
-            ? allEpisodes.map((episode, num) => {
-                return (
-                  <EpisodeList
-                    key={num}
-                    id={episode.id}
-                    season={episode.season}
-                    episodeNumber={episode.number}
-                    airDate={episode.airdate}
-                    title={episode.name}
-                  />
-                );
-              })
-            : lastEpisodes.map((episode, num) => {
-                return (
-                  <EpisodeList
-                    key={num}
-                    id={episode.id}
-                    season={episode.season}
-                    episodeNumber={episode.number}
-                    airDate={episode.airdate}
-                    title={episode.name}
-                  />
-                );
-              })}
+          <h2>Previous Episodes</h2>
+          <div>
+            {toggle
+              ? allEpisodes.map((episode, num) => {
+                  return (
+                    <EpisodeList
+                      key={num}
+                      id={episode.id}
+                      season={episode.season}
+                      episodeNumber={episode.number}
+                      airDate={episode.airdate}
+                      title={episode.name}
+                    />
+                  );
+                })
+              : lastEpisodes.map((episode, num) => {
+                  return (
+                    <EpisodeList
+                      key={num}
+                      id={episode.id}
+                      season={episode.season}
+                      episodeNumber={episode.number}
+                      airDate={episode.airdate}
+                      title={episode.name}
+                    />
+                  );
+                })}
+          </div>
         </div>
         <div>
           <button onClick={clickHandler}>
