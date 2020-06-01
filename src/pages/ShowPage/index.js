@@ -1,7 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchShowDetails } from "../../store/showDetails/action";
 import { selectShowDetails } from "../../store/showDetails/selectors";
+
+import EpisodeList from "./EpisodeList";
+import { selectEpisodes } from "../../store/episodesList/selectors";
+import { fetchEpisodes } from "../../store/episodesList/action";
 
 export default function ShowPage() {
   const dispatch = useDispatch();
@@ -12,9 +16,34 @@ export default function ShowPage() {
     ? stripHtml(showDetails.summary)
     : null;
 
+  const episodes = useSelector(selectEpisodes);
+  console.log("episodes at showpage", episodes);
+
+  const allEpisodes = episodes.sort(function(a, b) {
+    a = new Date(a.airdate);
+    b = new Date(b.airdate);
+    return a > b ? -1 : a < b ? 1 : 0;
+  });
+
+  const lastEpisodes = allEpisodes.slice(0, 3);
+  console.log("LAST3 EPISODES", lastEpisodes);
+
+  console.log("ALL EPISODES IN ORDER", allEpisodes);
+
+  const [toggle, setToggle] = useState(false);
+
+  const clickHandler = () => {
+    console.log("VIEW FULL EPISODE LIST CLIKCED!");
+    setToggle(!toggle);
+  };
+
   useEffect(() => {
     dispatch(fetchShowDetails());
   }, [dispatch]);
+
+  useEffect(() => {
+    dispatch(fetchEpisodes());
+  }, [showDetails]);
 
   return (
     <div>
@@ -27,6 +56,38 @@ export default function ShowPage() {
           />
         </div>
         <div>{description}</div>
+        <div>
+          {toggle
+            ? allEpisodes.map((episode, num) => {
+                return (
+                  <EpisodeList
+                    key={num}
+                    id={episode.id}
+                    season={episode.season}
+                    episodeNumber={episode.number}
+                    airDate={episode.airdate}
+                    title={episode.name}
+                  />
+                );
+              })
+            : lastEpisodes.map((episode, num) => {
+                return (
+                  <EpisodeList
+                    key={num}
+                    id={episode.id}
+                    season={episode.season}
+                    episodeNumber={episode.number}
+                    airDate={episode.airdate}
+                    title={episode.name}
+                  />
+                );
+              })}
+        </div>
+        <div>
+          <button onClick={clickHandler}>
+            {!toggle ? "View full episode list" : "Show less"}
+          </button>
+        </div>
       </div>
     </div>
   );
