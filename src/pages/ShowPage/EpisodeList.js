@@ -19,25 +19,16 @@ export default function EpisodeList(props) {
   const airDate = `${month} ${day}, ${year}`;
 
   return (
-    <div>
-      <div>
-        <table>
-          <tr>
-            <th>Episode</th>
-            <th>Name</th>
-            <th>Airdate</th>
-          </tr>
-          <tr>
-            <td>
-              {props.season}x{props.episodeNumber}
-            </td>
-            <NavLink to={`/episodes/${props.id}`} exact={true}>
-              <td>{props.title}</td>
-            </NavLink>
-            <td>{airDate}</td>
-          </tr>
-        </table>
-      </div>
-    </div>
+    <tr>
+      <td>
+        {props.season}x{props.episodeNumber}
+      </td>
+      <td>
+        <NavLink to={`/episodes/${props.id}`} exact={true}>
+          {props.title}
+        </NavLink>
+      </td>
+      <td>{airDate}</td>
+    </tr>
   );
 }
