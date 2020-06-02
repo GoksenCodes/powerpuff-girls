@@ -13,6 +13,7 @@ function App() {
           src="https://upload.wikimedia.org/wikipedia/commons/4/4a/The_Powerpuff_Girls_%282016%29_reboot_logo.svg"
           width="125"
           height="50"
+          alt="Power puff girls logo"
         />
       </nav>
       <Router>

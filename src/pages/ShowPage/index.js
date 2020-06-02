@@ -20,13 +20,21 @@ export default function ShowPage() {
   console.log("episodes at showpage", episodes);
 
   const allEpisodes = episodes.sort(function(a, b) {
-    a = new Date(a.airdate);
-    b = new Date(b.airdate);
+    a = a.id;
+    b = b.id;
     return a > b ? -1 : a < b ? 1 : 0;
   });
 
-  const lastEpisodes = allEpisodes.slice(0, 3);
-  console.log("LAST3 EPISODES", lastEpisodes);
+  const seasonThreeEpisodes = episodes.filter(episode => episode.season == 3);
+  console.log("season three episodes", seasonThreeEpisodes);
+
+  const lastEpisodesNoOrder = seasonThreeEpisodes.slice(0, 4);
+
+  const lastEpisodes = lastEpisodesNoOrder.sort(function(a, b) {
+    a = a.number;
+    b = b.number;
+    return a > b ? -1 : a < b ? 1 : 0;
+  });
 
   console.log("ALL EPISODES IN ORDER", allEpisodes);
 
@@ -43,7 +51,7 @@ export default function ShowPage() {
 
   useEffect(() => {
     dispatch(fetchEpisodes());
-  }, [showDetails]);
+  }, [dispatch, showDetails]);
 
   return (
     <div className="main">
@@ -63,36 +71,40 @@ export default function ShowPage() {
         <h2>Previous Episodes</h2>
         <div>
           <table>
-            <tr>
-              <th>Episode</th>
-              <th>Name</th>
-              <th>Airdate</th>
-            </tr>
-            {toggle
-              ? allEpisodes.map((episode, num) => {
-                  return (
-                    <EpisodeList
-                      key={num}
-                      id={episode.id}
-                      season={episode.season}
-                      episodeNumber={episode.number}
-                      airDate={episode.airdate}
-                      title={episode.name}
-                    />
-                  );
-                })
-              : lastEpisodes.map((episode, num) => {
-                  return (
-                    <EpisodeList
-                      key={num}
-                      id={episode.id}
-                      season={episode.season}
-                      episodeNumber={episode.number}
-                      airDate={episode.airdate}
-                      title={episode.name}
-                    />
-                  );
-                })}
+            <thead>
+              <tr>
+                <th>Episode</th>
+                <th>Name</th>
+                <th>Airdate</th>
+              </tr>
+            </thead>
+            <tbody>
+              {toggle
+                ? allEpisodes.map((episode, num) => {
+                    return (
+                      <EpisodeList
+                        key={num}
+                        id={episode.id}
+                        season={episode.season}
+                        episodeNumber={episode.number}
+                        airDate={episode.airdate}
+                        title={episode.name}
+                      />
+                    );
+                  })
+                : lastEpisodes.map((episode, num) => {
+                    return (
+                      <EpisodeList
+                        key={num}
+                        id={episode.id}
+                        season={episode.season}
+                        episodeNumber={episode.number}
+                        airDate={episode.airdate}
+                        title={episode.name}
+                      />
+                    );
+                  })}
+            </tbody>
           </table>
         </div>
       </div>
