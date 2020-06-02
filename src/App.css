@@ -17,6 +17,7 @@ body button {
   background: #e9edf3;
   border-color: #bedbd7;
   font-family: "Alatsi", serif;
+  border: 0.1rem;
 }
 
 body button:hover {

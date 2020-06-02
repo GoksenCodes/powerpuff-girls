@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getEpisodeDetail } from "../../store/episodeDetails/action";
 import { selectEpisodeDetails } from "../../store/episodeDetails/selectors";
+import { useHistory } from "react-router-dom";
 
 export default function EpisodeDetailsPage() {
   const dispatch = useDispatch();
@@ -11,6 +12,7 @@ export default function EpisodeDetailsPage() {
   console.log("EPISODE at episodedetailpage", episode);
   const stripHtml = require("string-strip-html");
   const description = episode.summary ? stripHtml(episode.summary) : null;
+  const history = useHistory();
 
   useEffect(() => {
     dispatch(getEpisodeDetail(id));
@@ -41,6 +43,11 @@ export default function EpisodeDetailsPage() {
           <strong>Episode Summary</strong>
         </p>
         <p>{description}</p>
+      </div>
+      <div>
+        <button className="primary-button" onClick={() => history.push("/")}>
+          Back to the main page
+        </button>
       </div>
     </div>
   );
