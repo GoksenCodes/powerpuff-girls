@@ -1,0 +1,57 @@
+@import "./config";
+
+body {
+  color: $text-color;
+  font-family: "Alatsi", serif;
+  font-size: 1rem;
+  line-height: 140%;
+  background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
+  background-size: contain;
+  min-height: 100vh;
+
+  // resets
+  margin: 0;
+  padding: 0;
+
+  button {
+    background: $light;
+    border-color: $primaryBtn;
+    &:hover {
+      background: $primaryBtn;
+      border-color: $light;
+      color: $light;
+    }
+    font-family: "Alatsi", serif;
+    border: 0.1rem;
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  td,
+  th {
+    border: 0.1rem solid $secondary;
+    text-align: left;
+    padding: 8px;
+  }
+
+  tr:nth-child(even) {
+    background-color: $light;
+  }
+
+  h1,
+  h2,
+  h3 {
+    margin: 0 0 (3 * $vertical-space) 0;
+  }
+
+  p,
+  ul,
+  ol,
+  li {
+    // vertical rhythm defined by bottom margins
+    margin: 0 0 $vertical-space 0;
+  }
+}
