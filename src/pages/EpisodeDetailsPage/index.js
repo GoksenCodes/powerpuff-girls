@@ -17,17 +17,30 @@ export default function EpisodeDetailsPage() {
   }, [dispatch, id]);
 
   return (
-    <div>
-      <div>
-        <h2>{episode.name}</h2>
-        <div>
-          <img
-            src={episode.image ? episode.image.medium : null}
-            alt={episode.image ? episode.title : null}
-          />
-        </div>
+    <div className="main">
+      <h2 className="main-title">{episode.name}</h2>
+      <img
+        className="primary-image"
+        src={
+          episode.image
+            ? episode.image.medium
+            : "http://static.tvmaze.com/images/no-img/no-img-landscape-text.png"
+        }
+        alt={episode.image ? episode.title : "no image is available"}
+      />
 
-        <div>{description}</div>
+      <div className="body-text">
+        <p>
+          <strong>Number :</strong> Season {episode.season} Episode{" "}
+          {episode.number}
+        </p>
+        <p>
+          <strong>Runtime :</strong> {episode.runtime} minutes{" "}
+        </p>
+        <p>
+          <strong>Episode Summary</strong>
+        </p>
+        <p>{description}</p>
       </div>
     </div>
   );

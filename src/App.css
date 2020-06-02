@@ -1,38 +1,121 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+@import url("https://fonts.googleapis.com/css?family=Alatsi|Patua+One&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Alatsi|Patua+One&display=swap");
+body {
+  color: #333;
+  font-family: "Alatsi", serif;
+  font-size: 1rem;
+  line-height: 140%;
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#a8edea), to(#fed6e3));
+  background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
+  background-size: contain;
   min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+body button {
+  background: #e9edf3;
+  border-color: #bedbd7;
+  font-family: "Alatsi", serif;
+}
+
+body button:hover {
+  background: #bedbd7;
+  border-color: #e9edf3;
+  color: #e9edf3;
+}
+
+body table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+body td,
+body th {
+  border: 0.1rem solid #006d80;
+  text-align: left;
+  padding: 8px;
+}
+
+body tr:nth-child(even) {
+  background-color: #e9edf3;
+}
+
+body h1,
+body h2,
+body h3 {
+  margin: 0 0 1.5rem 0;
+}
+
+body p,
+body ul,
+body ol,
+body li {
+  margin: 0 0 0.5rem 0;
+}
+
+.App {
+  max-width: 40rem;
+  margin: 0 auto;
+  margin-top: 2rem;
+  padding: 0 1rem;
+}
+
+.primary-button {
+  border-radius: 1em;
+  padding: 1rem;
+  margin: 1rem 0rem;
+}
+
+.body-text {
+  margin: 0;
+  margin: 1.5rem 0rem;
+  padding-left: 1.5rem;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.main {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
-.App-link {
-  color: #61dafb;
+.main .main-title {
+  width: 100%;
+  margin: 1.5em 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.main .primary-image {
+  width: 30%;
+  margin: 1.5rem 0;
+}
+
+.main .body-text {
+  width: 70%;
+}
+
+.main .table {
+  width: 100%;
+}
+
+@media all and (max-width: 480px) {
+  .main {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
   }
-  to {
-    transform: rotate(360deg);
+  .main .primary-image {
+    min-width: 190px;
+    margin: 0 auto;
+    display: block;
+  }
+  .main .body-text {
+    width: 100%;
+    padding-left: 0;
   }
 }
+/*# sourceMappingURL=App.css.map */

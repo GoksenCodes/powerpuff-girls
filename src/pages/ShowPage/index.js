@@ -46,19 +46,28 @@ export default function ShowPage() {
   }, [showDetails]);
 
   return (
-    <div>
-      <h1>{showDetails.name}</h1>
-      <div>
+    <div className="main">
+      <h1 className="main-title">{showDetails.name}</h1>
+      <img
+        className="primary-image"
+        src={showDetails.image ? showDetails.image.medium : null}
+        alt={showDetails.title}
+      />
+      <div className="body-text">
+        <p>
+          <strong>About the Show</strong>
+        </p>
+        <p>{description}</p>
+      </div>
+      <div className="table">
+        <h2>Previous Episodes</h2>
         <div>
-          <img
-            src={showDetails.image ? showDetails.image.medium : null}
-            alt={showDetails.title}
-          />
-        </div>
-        <div>{description}</div>
-        <div>
-          <h2>Previous Episodes</h2>
-          <div>
+          <table>
+            <tr>
+              <th>Episode</th>
+              <th>Name</th>
+              <th>Airdate</th>
+            </tr>
             {toggle
               ? allEpisodes.map((episode, num) => {
                   return (
@@ -84,13 +93,13 @@ export default function ShowPage() {
                     />
                   );
                 })}
-          </div>
+          </table>
         </div>
-        <div>
-          <button onClick={clickHandler}>
-            {!toggle ? "View full episode list" : "Show less"}
-          </button>
-        </div>
+      </div>
+      <div>
+        <button className="primary-button" onClick={clickHandler}>
+          {!toggle ? "View full episode list" : "Show less"}
+        </button>
       </div>
     </div>
   );
