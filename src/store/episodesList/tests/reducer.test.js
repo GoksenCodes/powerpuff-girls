@@ -11,7 +11,7 @@ describe("homepageReducer", () => {
     });
   });
 
-  describe("when given a FETCH_HOMEPAGE_SUCCESS action type", () => {
+  describe("when given a  ETCH_EPISODES_SUCCESS action type", () => {
     test("returns a new state with the payload array included", () => {
       const episodes = [{}, {}];
       const action = { type: FETCH_EPISODES_SUCCESS, payload: episodes };
