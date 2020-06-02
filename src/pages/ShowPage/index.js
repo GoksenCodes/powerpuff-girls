@@ -53,7 +53,12 @@ export default function ShowPage() {
         src={showDetails.image ? showDetails.image.medium : null}
         alt={showDetails.title}
       />
-      <div className="body-text">{description}</div>
+      <div className="body-text">
+        <p>
+          <strong>About the Show</strong>
+        </p>
+        <p>{description}</p>
+      </div>
       <div className="table">
         <h2>Previous Episodes</h2>
         <div>

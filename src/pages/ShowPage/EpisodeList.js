@@ -21,14 +21,20 @@ export default function EpisodeList(props) {
   return (
     <tr>
       <td>
-        {props.season}x{props.episodeNumber}
+        <p>
+          {props.season}x{props.episodeNumber}
+        </p>
       </td>
       <td>
-        <NavLink to={`/episodes/${props.id}`} exact={true}>
-          {props.title}
-        </NavLink>
+        <p>
+          <NavLink to={`/episodes/${props.id}`} exact={true}>
+            {props.title}
+          </NavLink>
+        </p>
       </td>
-      <td>{airDate}</td>
+      <td>
+        <p>{airDate}</p>
+      </td>
     </tr>
   );
 }

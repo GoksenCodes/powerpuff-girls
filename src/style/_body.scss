@@ -5,7 +5,9 @@ body {
   font-family: "Alatsi", serif;
   font-size: 1rem;
   line-height: 140%;
-  background-color: $primary;
+  background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
+  background-size: contain;
+  min-height: 100vh;
 
   // resets
   margin: 0;
@@ -17,11 +19,12 @@ body {
     &:hover {
       background: $primaryBtn;
       border-color: $light;
+      color: $light;
     }
+    font-family: "Alatsi", serif;
   }
 
   table {
-    font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 100%;
   }
@@ -34,7 +37,7 @@ body {
   }
 
   tr:nth-child(even) {
-    background-color: #dddddd;
+    background-color: $light;
   }
 
   h1,

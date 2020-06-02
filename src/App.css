@@ -5,7 +5,10 @@ body {
   font-family: "Alatsi", serif;
   font-size: 1rem;
   line-height: 140%;
-  background-color: #fefefe;
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#a8edea), to(#fed6e3));
+  background-image: linear-gradient(to top, #a8edea 0%, #fed6e3 100%);
+  background-size: contain;
+  min-height: 100vh;
   margin: 0;
   padding: 0;
 }
@@ -13,15 +16,16 @@ body {
 body button {
   background: #e9edf3;
   border-color: #bedbd7;
+  font-family: "Alatsi", serif;
 }
 
 body button:hover {
   background: #bedbd7;
   border-color: #e9edf3;
+  color: #e9edf3;
 }
 
 body table {
-  font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
 }
@@ -34,7 +38,7 @@ body th {
 }
 
 body tr:nth-child(even) {
-  background-color: #dddddd;
+  background-color: #e9edf3;
 }
 
 body h1,
@@ -58,8 +62,8 @@ body li {
 }
 
 .primary-button {
-  border-radius: 0.5em;
-  padding: 0.5rem;
+  border-radius: 1em;
+  padding: 1rem;
   margin: 1rem 0rem;
 }
 
@@ -81,6 +85,7 @@ body li {
 
 .main .main-title {
   width: 100%;
+  margin: 1.5em 0;
 }
 
 .main .primary-image {
