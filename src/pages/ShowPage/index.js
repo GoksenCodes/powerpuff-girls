@@ -10,14 +10,13 @@ import { fetchEpisodes } from "../../store/episodesList/action";
 export default function ShowPage() {
   const dispatch = useDispatch();
   const showDetails = useSelector(selectShowDetails);
-  console.log("show details at showpage", showDetails);
+
   const stripHtml = require("string-strip-html");
   const description = showDetails.summary
     ? stripHtml(showDetails.summary)
     : null;
 
   const episodes = useSelector(selectEpisodes);
-  console.log("episodes at showpage", episodes);
 
   const allEpisodes = episodes.sort(function(a, b) {
     a = a.id;
@@ -25,8 +24,7 @@ export default function ShowPage() {
     return a > b ? -1 : a < b ? 1 : 0;
   });
 
-  const seasonThreeEpisodes = episodes.filter(episode => episode.season == 3);
-  console.log("season three episodes", seasonThreeEpisodes);
+  const seasonThreeEpisodes = episodes.filter(episode => episode.season === 3);
 
   const lastEpisodesNoOrder = seasonThreeEpisodes.slice(0, 4);
 
@@ -36,12 +34,9 @@ export default function ShowPage() {
     return a > b ? -1 : a < b ? 1 : 0;
   });
 
-  console.log("ALL EPISODES IN ORDER", allEpisodes);
-
   const [toggle, setToggle] = useState(false);
 
   const clickHandler = () => {
-    console.log("VIEW FULL EPISODE LIST CLIKCED!");
     setToggle(!toggle);
   };
 

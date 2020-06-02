@@ -9,7 +9,7 @@ export default function EpisodeDetailsPage() {
   const dispatch = useDispatch();
   const { id } = useParams();
   const episode = useSelector(selectEpisodeDetails);
-  console.log("EPISODE at episodedetailpage", episode);
+
   const stripHtml = require("string-strip-html");
   const description = episode.summary ? stripHtml(episode.summary) : null;
   const history = useHistory();
@@ -46,7 +46,7 @@ export default function EpisodeDetailsPage() {
       </div>
       <div>
         <button className="primary-button" onClick={() => history.push("/")}>
-          Back to the main page
+          Back to the show page
         </button>
       </div>
     </div>
