@@ -1,7 +1,7 @@
 import reducer from "../reducer";
-import { FETCH_SHOWDETAILS_SUCCESS } from "../action";
+import { GET_EPISODE_SUCCESS } from "../action";
 
-describe("showDetailsReducer", () => {
+describe("episodeDetailsReducer", () => {
   const initialState = {};
 
   describe("if given no state and a random action", () => {
@@ -11,15 +11,15 @@ describe("showDetailsReducer", () => {
     });
   });
 
-  describe("when given a FETCH_SHOWDETAILS_SUCCESS action type", () => {
+  describe("when given a GET_EPISODE_SUCCESS action type", () => {
     test("returns a new state with the payload object included", () => {
-      const showDetails = {};
+      const episodeDetails = {};
       const action = {
-        type: FETCH_SHOWDETAILS_SUCCESS,
-        payload: showDetails
+        type: GET_EPISODE_SUCCESS,
+        payload: episodeDetails
       };
       const newState = reducer(initialState, action);
-      expect(newState).toEqual(showDetails);
+      expect(newState).toEqual(episodeDetails);
     });
   });
 });
