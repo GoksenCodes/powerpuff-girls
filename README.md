@@ -50,4 +50,5 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 * Redux
 * Sass
 * Jest
+* Rest API (TV Maze API)
 
